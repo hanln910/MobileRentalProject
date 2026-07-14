@@ -176,7 +176,11 @@ public class ContractDAO {
         c.setContractId(rs.getInt("contractId"));
         c.setOrderId(rs.getInt("orderId"));
         c.setCustomerIdCard(rs.getString("customerIdCard"));
-        try { c.setCustomerIdCardImage(rs.getString("customerIdCardImage")); } catch (SQLException e) { }
+        try {
+            c.setCustomerIdCardImage(rs.getString("customerIdCardImage"));
+        } catch (SQLException e) {
+            LOGGER.log(Level.FINE, "Column customerIsCardImange not available in current result set", e);
+        }
         c.setCustomerDOB(rs.getDate("customerDOB"));
         c.setEmergencyName(rs.getString("emergencyName"));
         c.setEmergencyPhone(rs.getString("emergencyPhone"));
@@ -197,7 +201,9 @@ public class ContractDAO {
             c.setCustomerEmail(rs.getString("customerEmail"));
             c.setCustomerPhone(rs.getString("customerPhone"));
             c.setStaffName(rs.getString("staffName"));
-        } catch (SQLException e) { }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Optional contract summary columns are not available in current result set", e);
+        }
         return c;
     }
 }
