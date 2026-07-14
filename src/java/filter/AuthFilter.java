@@ -75,7 +75,7 @@ public class AuthFilter implements Filter {
 
         // Allow access to JSP views inside WEB-INF (should not be accessed directly)
         if (path.startsWith("/views/") || path.startsWith("/WEB-INF/")) {
-            chain.doFilter(request, response);
+            httpResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
