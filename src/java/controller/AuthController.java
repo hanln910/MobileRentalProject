@@ -118,7 +118,7 @@ public class AuthController extends HttpServlet {
             String redirectUrl = (String) session.getAttribute("redirectUrl");
             if (redirectUrl != null) {
                 session.removeAttribute("redirectUrl");
-                response.sendRedirect(redirectUrl);
+                response.sendRedirect(request.getContextPath() + redirectUrl);
             } else {
                 switch (user.getRoleId()) {
                     case 1: // Admin

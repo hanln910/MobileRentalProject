@@ -103,7 +103,13 @@ public class AuthFilter implements Filter {
 
         // Check if user is logged in
         if (user == null) {
+
             // Save the requested URL for redirect after login
+            String queryString = httpRequest.getQueryString();
+            String redirectUrl = path;
+            if (queryString != null && !queryString.isEmpty()){
+                redirectUrl += "?" + queryString;
+            }
             httpRequest.getSession().setAttribute("redirectUrl", uri);
             httpResponse.sendRedirect(contextPath + "/auth?action=login");
             return;
