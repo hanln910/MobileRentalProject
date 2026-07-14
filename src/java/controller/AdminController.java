@@ -283,6 +283,12 @@ public class AdminController extends HttpServlet {
         }
 
         try {
+            int year = yearStr.isEmpty() ? Integer.parseInt(yearStr) : 2024;
+            double pricePerDay = Double.parseDouble(priceStr);
+            if (pricePerDay <= 0){
+                request.getSession().setAttribute("adminError", "Price per day must be greater than 0");;
+                response.sendRedirect(request.getContextPath() + "/admin?action=manageMotorbikes");
+            }
             Motorbike motorbike = new Motorbike();
             motorbike.setName(name.trim());
             motorbike.setBrandId(Integer.parseInt(brandIdStr));
@@ -325,6 +331,12 @@ public class AdminController extends HttpServlet {
         }
 
         try {
+            int year = yearStr.isEmpty() ? Integer.parseInt(yearStr) : 2024;
+            double pricePerDay = Double.parseDouble(priceStr);
+            if (pricePerDay <= 0){
+                request.getSession().setAttribute("adminError", "Price per day must be greater than 0");;
+                response.sendRedirect(request.getContextPath() + "/admin?action=manageMotorbikes");
+            }
             Motorbike motorbike = new Motorbike();
             motorbike.setMotorbikeId(Integer.parseInt(idStr));
             motorbike.setName(name.trim());

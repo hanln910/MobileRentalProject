@@ -116,11 +116,12 @@
                                                 <c:when test="${tx.type == 'TopUp'}"><span class="badge bg-success">Top Up</span></c:when>
                                                 <c:when test="${tx.type == 'Payment'}"><span class="badge bg-primary">Payment</span></c:when>
                                                 <c:when test="${tx.type == 'Refund'}"><span class="badge bg-warning text-dark">Refund</span></c:when>
+                                                <c:when test="${tx.type == 'Fine'}"><span class="badge bg-danger">Fine</span></c:when>
                                             </c:choose>
                                         </td>
                                         <td><small>${tx.description}</small></td>
-                                        <td class="fw-bold ${tx.type == 'Payment' ? 'text-danger' : 'text-success'}">
-                                            ${tx.type == 'Payment' ? '-' : '+'}$<fmt:formatNumber value="${tx.amount}" maxFractionDigits="2"/>
+                                        <td class="fw-bold ${(tx.type == 'Payment' || tx.type= 'Fine')?'text-danger':'text-success'}">
+                                            ${(tx.type == 'Payment' || tx.type= 'Fine')?'-' : '+'}$<fmt:formatNumber value="${tx.amount}" maxFractionDigits="2"/>
                                         </td>
                                         <td class="fw-semibold">$<fmt:formatNumber value="${tx.balanceAfter}" maxFractionDigits="2"/></td>
                                     </tr>
