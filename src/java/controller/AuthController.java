@@ -41,9 +41,6 @@ public class AuthController extends HttpServlet {
             case "register":
                 request.getRequestDispatcher("/views/auth/register.jsp").forward(request, response);
                 break;
-            case "logout":
-                doLogout(request, response);
-                break;
             default:
                 request.getRequestDispatcher("/views/auth/login.jsp").forward(request, response);
                 break;
@@ -65,6 +62,9 @@ public class AuthController extends HttpServlet {
                 break;
             case "register":
                 doRegister(request, response);
+                break;
+            case "logout":
+                doLogout(request, response);
                 break;
             default:
                 response.sendRedirect(request.getContextPath() + "/auth?action=login");

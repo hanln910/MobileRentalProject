@@ -25,7 +25,14 @@
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0">
                         <li><a class="dropdown-item py-2" href="${pageContext.request.contextPath}/orders?action=dashboard"><i class="fa-solid fa-chart-pie me-2"></i>Dashboard</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item py-2 text-danger" href="${pageContext.request.contextPath}/auth?action=logout"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</a></li>
+                        <li>
+                            <form action="${pageContext.request.contextPath}/auth?action=logout" method="post" style="display: inline">
+                                <input type="hidden" name="action" value="logout">
+                                <button type="submit" class="dropdown-item py-2 text-danger boder-0 bg- transparent">
+                                    <i class="fa-solid fa-arrow-right-from-bracket me-2">Logout</i>
+                                </button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
