@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Dashboard - MotoRent</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand text-white" href="staff-dashboard.html"><i class="fa-solid fa-motorcycle me-2 text-primary"></i>MotoRent Staff</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="target" aria-controls="staffNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="staffNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="staff-dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Motorbikes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Customers</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-white" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://ui-avatars.com/api/?name=Staff+Member&background=10b981&color=fff" alt="User" width="40" height="40" class="rounded-circle me-2">
+              <span class="fw-semibold d-none d-md-inline">Staff Member</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item py-2" href="#"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 text-danger" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold">Staff Operations Dashboard</h2>
+      <div class="text-muted fw-semibold" id="currentDate"></div>
+    </div>
+
+    <!-- Dashboard Statistics -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-3">
+        <div class="stat-card shadow-sm border-0">
+          <div class="stat-icon primary">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">45</h3>
+            <p class="text-muted mb-0 fw-semibold">Total Orders</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card shadow-sm border-0">
+          <div class="stat-icon warning">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">8</h3>
+            <p class="text-muted mb-0 fw-semibold">Pending Orders</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card shadow-sm border-0">
+          <div class="stat-icon primary" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">12</h3>
+            <p class="text-muted mb-0 fw-semibold">Active Rentals</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card shadow-sm border-0">
+          <div class="stat-icon success">
+            <i class="fa-solid fa-check-circle"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">25</h3>
+            <p class="text-muted mb-0 fw-semibold">Returned Orders</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Management Table -->
+    <div class="card border-0 shadow-sm p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold mb-0">Recent Orders</h4>
+        <div class="d-flex gap-2">
+          <input type="text" class="form-control rounded-pill" placeholder="Search orders...">
+          <button class="btn btn-outline-secondary rounded-pill px-3"><i class="fa-solid fa-filter"></i></button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Motorbike</th>
+              <th scope="col">Rental Date</th>
+              <th scope="col">Return Date</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Pending Order -->
+            <tr>
+              <td class="fw-semibold">#ORD-0045</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="https://ui-avatars.com/api/?name=Alice+Smith&background=random" class="rounded-circle me-2" width="32" height="32" alt="User">
+                  <span class="fw-semibold">Alice Smith</span>
+                </div>
+              </td>
+              <td>Honda CBR600RR</td>
+              <td>Oct 20, 2026</td>
+              <td>Oct 22, 2026</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-success rounded-pill px-3 fw-semibold">Confirm</button>
+              </td>
+            </tr>
+            <!-- Confirmed Order -->
+            <tr>
+              <td class="fw-semibold">#ORD-0044</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="https://ui-avatars.com/api/?name=Bob+Jones&background=random" class="rounded-circle me-2" width="32" height="32" alt="User">
+                  <span class="fw-semibold">Bob Jones</span>
+                </div>
+              </td>
+              <td>Yamaha YZF-R1</td>
+              <td>Oct 19, 2026</td>
+              <td>Oct 21, 2026</td>
+              <td><span class="badge bg-primary">Confirmed</span></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-info text-white rounded-pill px-3 fw-semibold">Start Rental</button>
+              </td>
+            </tr>
+            <!-- Active Rental -->
+            <tr>
+              <td class="fw-semibold">#ORD-0042</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="https://ui-avatars.com/api/?name=Charlie+Brown&background=random" class="rounded-circle me-2" width="32" height="32" alt="User">
+                  <span class="fw-semibold">Charlie Brown</span>
+                </div>
+              </td>
+              <td>Kawasaki Ninja 400</td>
+              <td>Oct 15, 2026</td>
+              <td>Oct 18, 2026</td>
+              <td><span class="badge bg-info text-dark">Active</span></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-dark rounded-pill px-3 fw-semibold">Complete</button>
+              </td>
+            </tr>
+            <!-- Completed Rental -->
+            <tr>
+              <td class="fw-semibold">#ORD-0038</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="https://ui-avatars.com/api/?name=Diana+Prince&background=random" class="rounded-circle me-2" width="32" height="32" alt="User">
+                  <span class="fw-semibold">Diana Prince</span>
+                </div>
+              </td>
+              <td>Ducati Panigale V4</td>
+              <td>Oct 10, 2026</td>
+              <td>Oct 12, 2026</td>
+              <td><span class="badge bg-success">Completed</span></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" disabled>Done</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+  <script>
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  </script>
+</body>
+</html>

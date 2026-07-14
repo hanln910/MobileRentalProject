@@ -1,0 +1,126 @@
+﻿Back to TestReport,To Buglist,,Pass: 30,Untested: 0
+Module Code,Login,,Fail: 0,N/A: 0
+Tester,Student,,Percent Complete: 100%,Number of cases: 30
+ID,Test Case Description,Pre -Condition,Test Case Procedure,Expected Output,Bug#,System test environment,Test date,Note
+[Login-1],Đăng nhập thành công với tài khoản Admin,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /admin?action=dashboard.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Basic flow
+[Login-2],Đăng nhập thành công với tài khoản Staff,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""staff@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /staff?action=dashboard.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Basic flow
+[Login-3],Đăng nhập thành công với tài khoản Customer,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /orders?action=dashboard.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Basic flow
+[Login-4],Email hợp lệ có khoảng trắng đầu/cuối vẫn đăng nhập được,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""  john@gmail.com  ""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Email được trim; hệ thống đăng nhập thành công và chuyển tới /orders?action=dashboard.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-5],Admin đăng nhập thành công và có redirectUrl trong session,Session đã có redirectUrl=/admin?action=manage-users.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""  admin@motorent.com ""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Email được trim; hệ thống đăng nhập thành công và chuyển tới URL đã lưu trong session.redirectUrl.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-6],Customer đăng nhập thành công và quay lại trang được yêu cầu trước đó,Session đã có redirectUrl=/orders?action=dashboard.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống đăng nhập thành công và chuyển tới URL đã lưu trong session.redirectUrl.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-7],Không nhập email,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: """"
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hệ thống không submit thành công; hiển thị lỗi ""Email is required.""; form login vẫn hiển thị.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-8],Email chỉ gồm khoảng trắng,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""   ""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email sau trim là rỗng; hiển thị lỗi ""Email is required.""; form login vẫn hiển thị.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-9],Email thiếu ký tự @,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin.motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; không gọi đăng nhập DB.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-10],Email thiếu phần domain suffix,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; không gọi đăng nhập DB.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-11],Email có ký tự plus không được regex hiện tại chấp nhận,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john+test@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; form login giữ lại email đã nhập.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-12],Không nhập password,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị lỗi ""Password is required.""; không đăng nhập.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-13],Password chỉ gồm khoảng trắng,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""   ""
+4. Click nút Log In","Password sau trim là rỗng; hiển thị lỗi ""Password is required.""; không đăng nhập.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-14],Không nhập email và password,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: """"
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị đồng thời lỗi ""Email is required."" và ""Password is required."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-15],Email sai định dạng và password rỗng,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin.motorent.com""
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format."" và ""Password is required."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-16],Admin nhập sai password,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""wrongpass""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-17],Customer nhập password sai chữ hoa/thường,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456A""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-18],Password đúng nhưng có khoảng trắng đầu chuỗi,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: "" 123456""
+4. Click nút Log In","Password không được trim khi so sánh DB; hiển thị lỗi ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-19],Password đúng nhưng có khoảng trắng cuối chuỗi,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456 ""
+4. Click nút Log In","Password không khớp chính xác; hiển thị lỗi ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-20],Email hợp lệ nhưng không tồn tại trong DB,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""notfound@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tiết lộ email có tồn tại hay không.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-21],Tài khoản bị khóa đăng nhập,DB có user locked@motorent.com/password 123456 với isActive=0.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""locked@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Your account has been locked. Please contact admin.""; không tạo session.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-22],Customer đăng nhập với checkbox Remember me được chọn,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Tick checkbox Remember me for 30 days
+5. Click nút Log In",Đăng nhập thành công; checkbox Remember me không tạo thay đổi server-side vì backend chưa xử lý.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-23],Đăng nhập thành công với customer khác,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""sarah@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /orders?action=dashboard.,,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Basic flow
+[Login-24],Email đúng định dạng dạng subdomain nhưng không tồn tại,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john.doe@mail.example.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua validation; hệ thống báo ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-25],Email bắt đầu bằng dấu chấm qua regex nhưng không tồn tại DB,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: "".john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua regex hiện tại; hệ thống báo ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-26],Email có hai dấu chấm liên tiếp qua regex nhưng không tồn tại DB,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john..doe@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua regex hiện tại; hệ thống báo ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow
+[Login-27],Password chứa chuỗi SQL injection,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""' OR '1'='1""
+4. Click nút Log In","PreparedStatement không cho bypass; hiển thị lỗi ""Invalid email or password."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Security flow
+[Login-28],Email chứa chuỗi SQL injection sai định dạng,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com'--""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Validation chặn email sai định dạng; hiển thị lỗi ""Invalid email format."".",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Security flow
+[Login-29],Password quá dài và không khớp,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""staff@motorent.com""
+3. Nhập Password: ""123456789012345678901234567890""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Exception flow
+[Login-30],POST thiếu action nhưng controller mặc định xử lý login,MotoRentDB đã được import; Tomcat 10.1 đang chạy; người dùng chưa đăng nhập.,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Dùng devtools/proxy xóa hidden input action=login trước khi submit
+5. Click nút Log In","Do action null được default thành login, hệ thống vẫn đăng nhập thành công và chuyển tới /orders?action=dashboard.",,"Windows 10/11, Chrome or Edge, Tomcat 10.1, JDK 17, SQL Server MotoRentDB",2026-07-05,Pass - Alternative flow

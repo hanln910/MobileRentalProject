@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - MotoRent</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-light">
+
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-motorcycle me-2 text-primary"></i>MotoRent Admin</a>
+      <div class="d-flex align-items-center gap-3">
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=dc2626&color=fff" alt="User" width="40" height="40" class="rounded-circle me-2">
+            <span class="fw-semibold d-none d-md-inline">Admin User</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item py-2" href="#"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-gear me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item py-2 text-danger" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-white p-3">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center gap-3" href="admin-dashboard.html">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-3" href="#">
+                <i class="fa-solid fa-users"></i> Users
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-3" href="#">
+                <i class="fa-solid fa-motorcycle"></i> Motorbikes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-3" href="#">
+                <i class="fa-solid fa-clipboard-list"></i> Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-3" href="#">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Reports
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-3" href="#">
+                <i class="fa-solid fa-gear"></i> Settings
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+          <h1 class="h2 fw-bold">Admin Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 me-2">
+              <i class="fa-solid fa-download me-1"></i> Export
+            </button>
+            <a href="add-motorbike.html" class="btn btn-sm btn-primary rounded-pill px-3">
+              <i class="fa-solid fa-plus me-1"></i> Add Motorbike
+            </a>
+          </div>
+        </div>
+
+        <!-- Analytics Cards -->
+        <div class="row g-4 mb-5">
+          <div class="col-md-3">
+            <div class="stat-card shadow-sm border-0">
+              <div class="stat-icon primary">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold mb-0">1,245</h3>
+                <p class="text-muted mb-0 fw-semibold">Total Users</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card shadow-sm border-0">
+              <div class="stat-icon warning">
+                <i class="fa-solid fa-motorcycle"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold mb-0">124</h3>
+                <p class="text-muted mb-0 fw-semibold">Total Motorbikes</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card shadow-sm border-0">
+              <div class="stat-icon success">
+                <i class="fa-solid fa-key"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold mb-0">8,450</h3>
+                <p class="text-muted mb-0 fw-semibold">Total Rentals</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card shadow-sm border-0">
+              <div class="stat-icon primary" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                <i class="fa-solid fa-dollar-sign"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold mb-0">$45.2k</h3>
+                <p class="text-muted mb-0 fw-semibold">Revenue</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row g-4 mb-5">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm p-4 h-100">
+              <h5 class="fw-bold mb-4">Revenue Overview</h5>
+              <canvas id="revenueChart" height="100"></canvas>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm p-4 h-100">
+              <h5 class="fw-bold mb-4">Most Popular Motorbikes</h5>
+              <canvas id="popularChart" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Motorbike Management Table -->
+        <div class="card border-0 shadow-sm p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold mb-0">Motorbike Management</h4>
+            <div class="d-flex gap-2">
+              <input type="text" class="form-control rounded-pill" placeholder="Search motorbikes...">
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Motorbike</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price/Day</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold">#MB-001</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="rounded me-3" width="50" height="40" style="object-fit: cover;" alt="Bike">
+                      <div>
+                        <h6 class="mb-0 fw-bold">Honda CBR600RR</h6>
+                        <small class="text-muted">Honda</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Sport</td>
+                  <td class="fw-bold">$45.00</td>
+                  <td><span class="badge badge-available">Available</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-primary rounded-circle me-1" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-sm btn-outline-danger rounded-circle" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">#MB-002</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="rounded me-3" width="50" height="40" style="object-fit: cover;" alt="Bike">
+                      <div>
+                        <h6 class="mb-0 fw-bold">Yamaha YZF-R1</h6>
+                        <small class="text-muted">Yamaha</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Sport</td>
+                  <td class="fw-bold">$60.00</td>
+                  <td><span class="badge badge-rented">Rented</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-primary rounded-circle me-1" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-sm btn-outline-danger rounded-circle" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">#MB-003</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="rounded me-3" width="50" height="40" style="object-fit: cover;" alt="Bike">
+                      <div>
+                        <h6 class="mb-0 fw-bold">Vespa Sprint 150</h6>
+                        <small class="text-muted">Vespa</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Scooter</td>
+                  <td class="fw-bold">$25.00</td>
+                  <td><span class="badge badge-maintenance">Maintenance</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-primary rounded-circle me-1" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-sm btn-outline-danger rounded-circle" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <nav class="mt-4">
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+  <script>
+    // Initialize Charts
+    document.addEventListener('DOMContentLoaded', function() {
+      // Revenue Chart
+      const revCtx = document.getElementById('revenueChart').getContext('2d');
+      new Chart(revCtx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+          datasets: [{
+            label: 'Revenue ($)',
+            data: [12000, 19000, 15000, 25000, 22000, 30000, 35000],
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+
+      // Popular Motorbikes Chart
+      const popCtx = document.getElementById('popularChart').getContext('2d');
+      new Chart(popCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Honda CBR', 'Yamaha R1', 'Kawasaki Ninja', 'Ducati', 'Others'],
+          datasets: [{
+            data: [35, 25, 20, 10, 10],
+            backgroundColor: [
+              '#2563eb',
+              '#3b82f6',
+              '#60a5fa',
+              '#93c5fd',
+              '#e2e8f0'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          cutout: '75%',
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

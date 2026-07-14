@@ -1,0 +1,26 @@
+﻿No,Input condition,Rule / Tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,L01,L02,L03,L04,L05,L06,L07,L08,L09,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30
+1,Form được submit với action=login,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,F
+2,Email được nhập (không rỗng sau trim),T,T,T,T,T,T,F,F,T,T,T,T,T,F,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T
+3,Email đúng định dạng sau trim,T,T,T,T,T,T,-,-,F,F,F,T,T,-,F,T,T,T,T,T,T,T,T,T,T,T,T,F,T,T
+4,Email có khoảng trắng đầu/cuối cần trim,F,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+5,Password được nhập (không rỗng sau trim),T,T,T,T,T,T,T,T,T,T,T,F,F,F,F,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T
+6,Password khớp chính xác với DB,T,T,T,T,T,T,-,-,-,-,-,-,-,-,-,F,F,F,F,F,T,T,T,F,F,F,F,-,F,T
+7,Tài khoản đang active,T,T,T,T,T,T,-,-,-,-,-,-,-,-,-,-,-,-,-,F,F,T,T,F,F,F,-,-,-,T
+8,Tài khoản có role Admin,T,F,F,F,T,F,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,F,F,-,-,-,-,-,-,F
+9,Tài khoản có role Staff,F,T,F,F,F,F,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,F,F,-,-,-,-,-,-,F
+10,Session có redirectUrl trước đăng nhập,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+,Output condition,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,"Hiển thị lỗi ""Email is required.""",F,F,F,F,F,F,T,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+2,"Hiển thị lỗi ""Invalid email format.""",F,F,F,F,F,F,F,F,T,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
+3,"Hiển thị lỗi ""Password is required.""",F,F,F,F,F,F,F,F,F,F,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+4,"Hiển thị lỗi ""Invalid email or password.""",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,T,T,T,F,F,F,T,T,T,T,F,T,F
+5,"Hiển thị lỗi ""Your account has been locked. Please contact admin.""",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F
+6,Tạo session user và timeout 30 phút,T,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,F,F,F,T
+7,Redirect tới /admin?action=dashboard,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+8,Redirect tới /staff?action=dashboard,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+9,Redirect tới /orders?action=dashboard,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,F,F,F,T
+10,Redirect tới URL được lưu trong session.redirectUrl,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+11,Hiển thị lại Login form và giữ email đã nhập,F,F,F,F,F,F,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,F,F,T,T,T,T,T,T,F
+12,Password không được hiển thị lại sau lỗi,F,F,F,F,F,F,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,F,F,T,T,T,T,T,T,F
+13,Remember me không làm thay đổi kết quả phía server,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F

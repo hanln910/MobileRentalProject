@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honda CBR600RR - MotoRent</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-motorcycle me-2"></i>MotoRent</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="target" aria-controls="navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="motorbikes.html">Motorbikes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="login.html" class="btn btn-outline-primary px-4 rounded-pill">Login</a>
+          <a href="register.html" class="btn btn-primary px-4 rounded-pill">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item"><a href="motorbikes.html" class="text-decoration-none">Motorbikes</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Honda CBR600RR</li>
+      </ol>
+    </nav>
+
+    <div class="row g-5">
+      <!-- Left side: Image Gallery -->
+      <div class="col-lg-7">
+        <div class="gallery-main mb-3">
+          <img id="mainImage" src="https://images.unsplash.com/photo-1568772585407-9361f9bf3c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="img-fluid w-100" alt="Honda CBR600RR" style="height: 500px; object-fit: cover;">
+        </div>
+        <div class="row g-2 gallery-thumbs">
+          <div class="col-3">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="img-fluid active" alt="Thumb 1">
+          </div>
+          <div class="col-3">
+            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Thumb 2">
+          </div>
+          <div class="col-3">
+            <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Thumb 3">
+          </div>
+          <div class="col-3">
+            <img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Thumb 4">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Information & Booking -->
+      <div class="col-lg-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted fw-semibold text-uppercase">Honda</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+        <h1 class="fw-bold mb-3">CBR600RR</h1>
+        
+        <div class="d-flex align-items-center mb-4">
+          <div class="text-warning me-2">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="text-muted">(24 Reviews)</span>
+          <span class="mx-3 text-muted">|</span>
+          <span class="text-muted">Year: 2023</span>
+        </div>
+
+        <div class="mb-4">
+          <span class="display-5 fw-bold text-primary" id="pricePerDay" data-price="45">$45</span>
+          <span class="text-muted fs-5">/day</span>
+        </div>
+
+        <p class="text-muted mb-5">The Honda CBR600RR is a 599 cc sport bike made by Honda since 2003, part of the CBR series. It is known for its incredible handling, powerful engine, and sleek aerodynamic design.</p>
+
+        <!-- Booking Form -->
+        <div class="card bg-light p-4 border-0 mb-4">
+          <h5 class="fw-bold mb-4">Book this Motorbike</h5>
+          <form>
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <label class="form-label fw-semibold text-muted">Pickup Date</label>
+                <input type="date" class="form-control" id="pickupDate" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold text-muted">Return Date</label>
+                <input type="date" class="form-control" id="returnDate" required>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+              <span class="fw-semibold">Total Price:</span>
+              <span class="fs-4 fw-bold text-primary" id="totalPrice">$0.00</span>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button type="submit" class="btn btn-primary flex-grow-1 rounded-pill py-2 fw-semibold">Rent Now</button>
+              <button type="button" class="btn btn-outline-secondary rounded-circle" style="width: 45px; height: 45px;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Section -->
+    <div class="row mt-5 pt-5">
+      <div class="col-12">
+        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active fw-semibold" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab">Description</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fw-semibold" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab">Specifications</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fw-semibold" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">Reviews</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active text-muted" id="desc" role="tabpanel">
+            <p>Experience the thrill of the track on the street with the Honda CBR600RR. This middleweight sportbike delivers an exhilarating combination of power, handling, and aerodynamic styling.</p>
+            <p>Whether you're carving through canyons or commuting in the city, the CBR600RR offers a responsive and engaging ride. It features advanced suspension, powerful brakes, and a high-revving inline-four engine.</p>
+          </div>
+          <div class="tab-pane fade" id="specs" role="tabpanel">
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th class="w-25 bg-light">Engine</th><td>599cc liquid-cooled inline four-cylinder</td></tr>
+                <tr><th class="bg-light">Transmission</th><td>6-speed</td></tr>
+                <tr><th class="bg-light">Weight</th><td>410 lbs (wet)</td></tr>
+                <tr><th class="bg-light">Fuel Capacity</th><td>4.8 gallons</td></tr>
+                <tr><th class="bg-light">Seat Height</th><td>32.3 inches</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="reviews" role="tabpanel">
+            <div class="d-flex mb-4">
+              <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" class="rounded-circle me-3" width="50" height="50" alt="User">
+              <div>
+                <h6 class="fw-bold mb-1">John Doe</h6>
+                <div class="text-warning small mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-muted">Incredible bike! Very fast and handles like a dream. The rental process was easy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h4 class="text-white fw-bold mb-4"><i class="fa-solid fa-motorcycle me-2"></i>MotoRent</h4>
+          <p class="text-muted">Your trusted partner for premium motorbike rentals.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+  <script src="/public/js/main.js"></script>
+</body>
+</html>

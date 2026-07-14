@@ -1,0 +1,123 @@
+﻿Test case,Description,Expected outcome,Tag
+1,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /admin?action=dashboard.,L01
+2,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""staff@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /staff?action=dashboard.,L02
+3,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /orders?action=dashboard.,L03
+4,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""  john@gmail.com  ""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Email được trim; hệ thống đăng nhập thành công và chuyển tới /orders?action=dashboard.,L04
+5,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""  admin@motorent.com ""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Email được trim; hệ thống đăng nhập thành công và chuyển tới URL đã lưu trong session.redirectUrl.,L05
+6,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống đăng nhập thành công và chuyển tới URL đã lưu trong session.redirectUrl.,L06
+7,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: """"
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hệ thống không submit thành công; hiển thị lỗi ""Email is required.""; form login vẫn hiển thị.",L07
+8,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""   ""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email sau trim là rỗng; hiển thị lỗi ""Email is required.""; form login vẫn hiển thị.",L08
+9,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin.motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; không gọi đăng nhập DB.",L09
+10,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; không gọi đăng nhập DB.",L10
+11,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john+test@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format.""; form login giữ lại email đã nhập.",L11
+12,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị lỗi ""Password is required.""; không đăng nhập.",L12
+13,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""   ""
+4. Click nút Log In","Password sau trim là rỗng; hiển thị lỗi ""Password is required.""; không đăng nhập.",L13
+14,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: """"
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị đồng thời lỗi ""Email is required."" và ""Password is required."".",L14
+15,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin.motorent.com""
+3. Nhập Password: """"
+4. Click nút Log In","Hiển thị lỗi ""Invalid email format."" và ""Password is required."".",L15
+16,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""wrongpass""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",L16
+17,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456A""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",L17
+18,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: "" 123456""
+4. Click nút Log In","Password không được trim khi so sánh DB; hiển thị lỗi ""Invalid email or password."".",L18
+19,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456 ""
+4. Click nút Log In","Password không khớp chính xác; hiển thị lỗi ""Invalid email or password."".",L19
+20,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""notfound@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tiết lộ email có tồn tại hay không.",L20
+21,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""locked@motorent.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Hiển thị lỗi ""Your account has been locked. Please contact admin.""; không tạo session.",L21
+22,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Tick checkbox Remember me for 30 days
+5. Click nút Log In",Đăng nhập thành công; checkbox Remember me không tạo thay đổi server-side vì backend chưa xử lý.,L22
+23,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""sarah@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In",Hệ thống tạo session user và chuyển tới /orders?action=dashboard.,L23
+24,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john.doe@mail.example.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua validation; hệ thống báo ""Invalid email or password."".",L24
+25,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: "".john@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua regex hiện tại; hệ thống báo ""Invalid email or password."".",L25
+26,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john..doe@gmail.com""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Email qua regex hiện tại; hệ thống báo ""Invalid email or password."".",L26
+27,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com""
+3. Nhập Password: ""' OR '1'='1""
+4. Click nút Log In","PreparedStatement không cho bypass; hiển thị lỗi ""Invalid email or password."".",L27
+28,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""admin@motorent.com'--""
+3. Nhập Password: ""123456""
+4. Click nút Log In","Validation chặn email sai định dạng; hiển thị lỗi ""Invalid email format."".",L28
+29,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""staff@motorent.com""
+3. Nhập Password: ""123456789012345678901234567890""
+4. Click nút Log In","Hiển thị lỗi ""Invalid email or password.""; không tạo session.",L29
+30,"1. Mở http://localhost:8080/MobileRentalProject/auth?action=login
+2. Nhập Email: ""john@gmail.com""
+3. Nhập Password: ""123456""
+4. Dùng devtools/proxy xóa hidden input action=login trước khi submit
+5. Click nút Log In","Do action null được default thành login, hệ thống vẫn đăng nhập thành công và chuyển tới /orders?action=dashboard.",L30

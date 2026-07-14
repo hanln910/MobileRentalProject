@@ -1,0 +1,13 @@
+﻿Project,MotoRent - Motorbike Rental Management System
+Selected screen,Login / Sign In
+URL,/auth?action=login
+Controller,controller.AuthController#doLogin
+JSP,/views/auth/login.jsp
+Technique,Decision table and extended decision table
+Number of input conditions,10
+Number of test cases,30
+Valid admin account,admin@motorent.com / 123456
+Valid staff account,staff@motorent.com / 123456
+Valid customer account,john@gmail.com / 123456
+Main expected redirects,/admin?action=dashboard; /staff?action=dashboard; /orders?action=dashboard
+Main validation messages,Email is required.; Invalid email format.; Password is required.; Invalid email or password.

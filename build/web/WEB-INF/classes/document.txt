@@ -1,0 +1,471 @@
+﻿MOTORBIKE RENTAL MANAGEMENT SYSTEM
+1. System Overview
+Hệ thống Motorbike Rental Management System là một ứng dụng web cho phép khách hàng tìm kiếm, đặt thuê và quản lý việc thuê xe máy trực tuyến. Hệ thống hỗ trợ cửa hàng quản lý danh sách xe, đơn thuê, khách hàng và xử lý các hoạt động vận hành hàng ngày.
+Ứng dụng được xây dựng nhằm:
+* Giúp khách hàng dễ dàng tìm kiếm và đặt thuê xe máy online
+
+* Giúp nhân viên quản lý đơn thuê và xe
+
+* Giúp quản trị viên quản lý toàn bộ hệ thống
+
+Hệ thống sử dụng mô hình MVC Architecture, phát triển bằng:
+   * Frontend: HTML5, CSS3, Bootstrap 5 (Responsive)
+
+   * Backend: Servlet, JSP
+
+   * Database: SQL Server / MySQL với JDBC / JPA
+
+   * Security: Filter-based Authentication & Authorization
+
+   * View: JSTL + Custom Tag
+
+________________
+
+
+2. System Actors
+Hệ thống bao gồm 4 tác nhân chính:
+Actor
+	Description
+	Guest
+	Người dùng chưa đăng nhập
+	Customer
+	Khách hàng đã đăng ký tài khoản
+	Staff
+	Nhân viên cửa hàng xử lý đơn thuê
+	Admin
+	Quản trị viên hệ thống
+	________________
+
+
+3. Functional Requirements
+3.1 Guest Functions
+Guest là người truy cập website nhưng chưa đăng nhập.
+3.1.1 View Home Page
+Guest có thể truy cập trang chủ để xem thông tin giới thiệu về cửa hàng.
+Chức năng:
+      * Xem banner quảng cáo
+
+      * Xem xe nổi bật
+
+      * Xem thông tin cửa hàng
+
+________________
+
+
+3.1.2 Browse Motorbikes
+Guest có thể xem danh sách xe máy cho thuê.
+Thông tin hiển thị:
+         * Hình ảnh xe
+
+         * Tên xe
+
+         * Hãng xe
+
+         * Giá thuê / ngày
+
+         * Tình trạng xe
+
+Tính năng:
+            * Pagination
+
+            * Sort theo giá
+
+            * Filter theo hãng xe
+
+________________
+
+
+3.1.3 View Motorbike Details
+Guest có thể xem chi tiết xe.
+Thông tin bao gồm:
+               * Hình ảnh
+
+               * Tên xe
+
+               * Hãng xe
+
+               * Năm sản xuất
+
+               * Giá thuê
+
+               * Mô tả
+
+               * Trạng thái
+
+________________
+
+
+3.1.4 Register Account
+Guest có thể đăng ký tài khoản để trở thành Customer.
+Thông tin đăng ký:
+                  * Full Name
+
+                  * Email
+
+                  * Phone Number
+
+                  * Password
+
+                  * Address
+
+________________
+
+
+3.1.5 Login
+Guest có thể đăng nhập vào hệ thống.
+Hệ thống kiểm tra:
+                     * Email
+
+                     * Password
+
+Sau khi login sẽ chuyển hướng theo role.
+________________
+
+
+3.2 Customer Functions
+Customer là người dùng đã đăng ký tài khoản.
+________________
+
+
+3.2.1 Manage Profile
+Customer có thể quản lý thông tin cá nhân.
+Chức năng:
+                        * View Profile
+
+                        * Update Profile
+
+                        * Change Password
+
+________________
+
+
+3.2.2 Search Motorbikes
+Customer có thể tìm kiếm xe theo:
+                           * Brand
+
+                           * Price range
+
+                           * Motorbike type
+
+                           * Availability
+
+________________
+
+
+3.2.3 Rent Motorbike
+Customer có thể đặt thuê xe.
+Thông tin đơn thuê:
+                              * Motorbike
+
+                              * Rental Date
+
+                              * Return Date
+
+                              * Total Days
+
+                              * Total Price
+
+Quy trình:
+1 Customer chọn xe
+2 Customer chọn ngày thuê
+3 Hệ thống tính giá
+4 Customer xác nhận đặt xe
+________________
+
+
+3.2.4 View Rental History
+Customer có thể xem lịch sử thuê xe.
+Thông tin bao gồm:
+                                 * Order ID
+
+                                 * Motorbike
+
+                                 * Rental Date
+
+                                 * Return Date
+
+                                 * Total Price
+
+                                 * Status
+
+________________
+
+
+3.2.5 Cancel Booking
+Customer có thể hủy đơn thuê nếu:
+                                    * Đơn chưa được staff xác nhận
+
+________________
+
+
+3.3 Staff Functions
+Staff là nhân viên cửa hàng chịu trách nhiệm xử lý các đơn thuê.
+________________
+
+
+3.3.1 Manage Rental Orders
+Staff có thể xem danh sách đơn thuê.
+Thông tin hiển thị:
+                                       * Order ID
+
+                                       * Customer
+
+                                       * Motorbike
+
+                                       * Rental Date
+
+                                       * Return Date
+
+                                       * Status
+
+________________
+
+
+3.3.2 Confirm Rental Orders
+Staff có thể xác nhận đơn thuê.
+Các trạng thái:
+                                          * Pending
+
+                                          * Confirmed
+
+                                          * Renting
+
+                                          * Returned
+
+                                          * Cancelled
+
+________________
+
+
+3.3.3 Manage Motorbike Status
+Staff cập nhật tình trạng xe:
+                                             * Available
+
+                                             * Rented
+
+                                             * Maintenance
+
+________________
+
+
+3.3.4 Check Return Motorbike
+Khi khách trả xe, Staff:
+                                                * Kiểm tra xe
+
+                                                * Cập nhật trạng thái
+
+                                                * Hoàn tất đơn thuê
+
+________________
+
+
+3.4 Admin Functions
+Admin là người quản trị hệ thống.
+________________
+
+
+3.4.1 Manage Users
+Admin có thể quản lý tài khoản người dùng.
+Chức năng:
+                                                   * View users
+
+                                                   * Create staff account
+
+                                                   * Lock / Unlock account
+
+                                                   * Delete user
+
+________________
+
+
+3.4.2 Manage Motorbikes
+Admin quản lý xe trong hệ thống.
+Chức năng:
+                                                      * Add motorbike
+
+                                                      * Update motorbike
+
+                                                      * Delete motorbike
+
+                                                      * Upload motorbike image
+
+Thông tin xe:
+                                                         * Name
+
+                                                         * Brand
+
+                                                         * Price per day
+
+                                                         * Description
+
+                                                         * Status
+
+                                                         * Image
+
+________________
+
+
+3.4.3 Manage Categories
+Admin có thể quản lý loại xe.
+Ví dụ:
+                                                            * Scooter
+
+                                                            * Sport
+
+                                                            * Manual
+
+________________
+
+
+3.4.4 View Reports
+Admin có thể xem thống kê:
+                                                               * Total rentals
+
+                                                               * Revenue
+
+                                                               * Popular motorbikes
+
+                                                               * Monthly revenue
+
+________________
+
+
+4. Non-Functional Requirements
+4.1 Security
+Hệ thống sử dụng:
+                                                                  * Authentication bằng Login
+
+                                                                  * Authorization bằng Filter
+
+Phân quyền:
+Role
+	Access
+	Guest
+	Public pages
+	Customer
+	Booking features
+	Staff
+	Order management
+	Admin
+	System management
+	________________
+
+
+4.2 Performance
+                                                                     * Response time < 3 seconds
+
+                                                                     * Pagination cho danh sách lớn
+
+________________
+
+
+4.3 Usability
+                                                                        * Responsive design
+
+                                                                        * Simple navigation
+
+                                                                        * Mobile friendly
+
+________________
+
+
+5. Main System Modules
+Hệ thống gồm các module chính:
+                                                                           1. Authentication Module
+
+                                                                           2. User Management Module
+
+                                                                           3. Motorbike Management Module
+
+                                                                           4. Rental Order Management Module
+
+                                                                           5. Report Module
+
+________________
+
+
+6. Database Main Entities
+Các bảng chính trong hệ thống:
+                                                                              * Users
+
+                                                                              * Roles
+
+                                                                              * Motorbikes
+
+                                                                              * Categories
+
+                                                                              * RentalOrders
+
+                                                                              * RentalOrderDetails
+
+________________
+
+
+7. Typical System Workflow
+Rent Motorbike Workflow
+1 User đăng nhập
+2 User tìm kiếm xe
+3 User xem chi tiết xe
+4 User tạo booking
+5 Staff xác nhận đơn
+6 Customer nhận xe
+7 Customer trả xe
+8 Staff hoàn tất đơn
+
+
+ID
+	Yêu Cầu Chức Năng (FR)
+	Mô Tả Chi Tiết
+	Ưu Tiên
+	FR01
+	Đăng ký tài khoản
+	Người dùng mới có thể tạo tài khoản bằng email, số điện thoại và mật khẩu. Hệ thống kiểm tra trùng email và xác thực thông tin.
+	High
+	FR02
+	Đăng nhập hệ thống
+	Người dùng có thể đăng nhập bằng email và mật khẩu để truy cập các chức năng dành cho khách hàng.
+	High
+	FR03
+	Xem danh sách xe
+	Guest và Customer có thể xem danh sách các xe đang cho thuê bao gồm hình ảnh, giá thuê, loại xe và tình trạng.
+	High
+	FR04
+	Tìm kiếm xe
+	Người dùng có thể tìm xe theo tên xe, loại xe, hãng xe hoặc khoảng giá.
+	Medium
+	FR05
+	Xem chi tiết xe
+	Người dùng có thể xem thông tin chi tiết của xe như hình ảnh, mô tả, giá thuê, tình trạng và đánh giá.
+	High
+	FR06
+	Đặt thuê xe
+	Customer có thể đặt thuê xe bằng cách chọn ngày thuê, ngày trả và xác nhận thông tin đặt xe.
+	High
+	FR07
+	Quản lý đơn thuê
+	Customer có thể xem danh sách các đơn thuê của mình và trạng thái đơn (Pending, Approved, Completed, Cancelled).
+	High
+	FR08
+	Hủy đơn thuê
+	Customer có thể hủy đơn thuê khi đơn chưa được Staff xác nhận.
+	Medium
+	FR09
+	Quản lý xe
+	Staff/Admin có thể thêm, sửa, xóa thông tin xe trong hệ thống.
+	High
+	FR10
+	Quản lý đơn đặt xe
+	Staff có thể xem và xử lý đơn thuê xe (xác nhận, từ chối, cập nhật trạng thái).
+	High
+	FR11
+	Quản lý người dùng
+	Admin có thể xem danh sách người dùng, khóa hoặc mở khóa tài khoản.
+	Medium
+	FR12
+	Quản lý đánh giá
+	Customer có thể đánh giá xe sau khi hoàn thành đơn thuê.
+	Low
+	FR13
+	Thống kê báo cáo
+	Admin có thể xem báo cáo doanh thu, số đơn thuê và tình trạng xe.
+	Medium

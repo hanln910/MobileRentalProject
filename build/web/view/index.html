@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoRent - Rent Your Perfect Motorbike Today</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-motorcycle me-2"></i>MotoRent</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="target" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="motorbikes.html">Motorbikes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="login.html" class="btn btn-outline-primary px-4 rounded-pill">Login</a>
+          <a href="register.html" class="btn btn-primary px-4 rounded-pill">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4">Rent Your Perfect Motorbike Today</h1>
+          <p class="lead mb-5">Affordable, Fast, and Reliable Motorbike Rental Service</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Box -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="search-box">
+          <form class="row g-3 align-items-end">
+            <div class="col-md-4">
+              <label class="form-label text-muted fw-semibold">Pickup Date</label>
+              <input type="date" class="form-control form-control-lg">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted fw-semibold">Return Date</label>
+              <input type="date" class="form-control form-control-lg">
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill">Search Motorbikes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works Section -->
+  <section class="py-5 mt-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">How It Works</h2>
+        <p class="text-muted">Rent a motorbike in 3 easy steps</p>
+      </div>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="stat-icon primary mx-auto mb-4">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h4 class="fw-bold">Search Motorbike</h4>
+            <p class="text-muted">Choose from our wide range of premium motorbikes.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="stat-icon warning mx-auto mb-4">
+              <i class="fa-regular fa-calendar-check"></i>
+            </div>
+            <h4 class="fw-bold">Book Online</h4>
+            <p class="text-muted">Select your dates and book instantly online.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="stat-icon success mx-auto mb-4">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <h4 class="fw-bold">Ride Anywhere</h4>
+            <p class="text-muted">Pick up your bike and enjoy the ride.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Motorbikes Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+          <h2 class="fw-bold mb-0">Featured Motorbikes</h2>
+          <p class="text-muted mb-0 mt-2">Explore our most popular rentals</p>
+        </div>
+        <a href="motorbikes.html" class="btn btn-outline-primary rounded-pill px-4">View All</a>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card hover-lift h-100">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Honda CBR600RR" style="height: 250px; object-fit: cover;">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <span class="text-muted small fw-semibold text-uppercase">Honda</span>
+                  <h5 class="card-title fw-bold mb-0">CBR600RR</h5>
+                </div>
+                <div class="badge bg-light text-dark border"><i class="fa-solid fa-star text-warning me-1"></i>4.9</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <div>
+                  <span class="fs-4 fw-bold text-primary">$45</span><span class="text-muted">/day</span>
+                </div>
+                <a href="motorbike-detail.html" class="btn btn-primary rounded-pill px-4">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card hover-lift h-100">
+            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Yamaha R1" style="height: 250px; object-fit: cover;">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <span class="text-muted small fw-semibold text-uppercase">Yamaha</span>
+                  <h5 class="card-title fw-bold mb-0">YZF-R1</h5>
+                </div>
+                <div class="badge bg-light text-dark border"><i class="fa-solid fa-star text-warning me-1"></i>4.8</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <div>
+                  <span class="fs-4 fw-bold text-primary">$60</span><span class="text-muted">/day</span>
+                </div>
+                <a href="motorbike-detail.html" class="btn btn-primary rounded-pill px-4">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card hover-lift h-100">
+            <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Kawasaki Ninja" style="height: 250px; object-fit: cover;">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <span class="text-muted small fw-semibold text-uppercase">Kawasaki</span>
+                  <h5 class="card-title fw-bold mb-0">Ninja 400</h5>
+                </div>
+                <div class="badge bg-light text-dark border"><i class="fa-solid fa-star text-warning me-1"></i>4.7</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <div>
+                  <span class="fs-4 fw-bold text-primary">$35</span><span class="text-muted">/day</span>
+                </div>
+                <a href="motorbike-detail.html" class="btn btn-primary rounded-pill px-4">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">What Our Customers Say</h2>
+        <p class="text-muted">Real reviews from our riders</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card p-4 h-100 bg-light border-0">
+            <div class="text-warning mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="mb-4">"Amazing experience! The bike was in perfect condition and the booking process was incredibly smooth."</p>
+            <div class="d-flex align-items-center">
+              <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" class="rounded-circle me-3" width="48" height="48" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">John Doe</h6>
+                <small class="text-muted">Rented Honda CBR600RR</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 h-100 bg-light border-0">
+            <div class="text-warning mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="mb-4">"Great customer service. They delivered the bike to my hotel on time. Highly recommended!"</p>
+            <div class="d-flex align-items-center">
+              <img src="https://ui-avatars.com/api/?name=Sarah+Smith&background=random" class="rounded-circle me-3" width="48" height="48" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">Sarah Smith</h6>
+                <small class="text-muted">Rented Yamaha R1</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 h-100 bg-light border-0">
+            <div class="text-warning mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+            </div>
+            <p class="mb-4">"Very affordable prices compared to other rental services. Will definitely use MotoRent again."</p>
+            <div class="d-flex align-items-center">
+              <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=random" class="rounded-circle me-3" width="48" height="48" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">Mike Johnson</h6>
+                <small class="text-muted">Rented Kawasaki Ninja 400</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h4 class="text-white fw-bold mb-4"><i class="fa-solid fa-motorcycle me-2"></i>MotoRent</h4>
+          <p class="text-muted">Your trusted partner for premium motorbike rentals. Experience the freedom of the open road with our well-maintained fleet.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-white fs-5"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="text-white fs-5"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 offset-lg-2">
+          <h5 class="text-white fw-bold mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html">Home</a></li>
+            <li class="mb-2"><a href="motorbikes.html">Motorbikes</a></li>
+            <li class="mb-2"><a href="#">Pricing</a></li>
+            <li class="mb-2"><a href="#">About Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="text-white fw-bold mb-4">Contact Info</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="mb-3"><i class="fa-solid fa-location-dot me-2"></i> 123 Biker Street, NY 10001</li>
+            <li class="mb-3"><i class="fa-solid fa-phone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-3"><i class="fa-solid fa-envelope me-2"></i> support@motorent.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-5 mb-4 border-secondary">
+      <div class="text-center text-muted">
+        <small>&copy; 2026 MotoRent. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+  <!-- Custom JS -->
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Motorbike - MotoRent Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style>
+    .upload-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      background-color: #f8fafc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .upload-area:hover {
+      border-color: var(--primary-color);
+      background-color: rgba(37, 99, 235, 0.05);
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #e2e8f0;
+      z-index: 1;
+    }
+    .step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      border: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #94a3b8;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    .step.active .step-circle {
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+      color: white;
+    }
+    .step.completed .step-circle {
+      border-color: var(--primary-color);
+      background-color: white;
+      color: var(--primary-color);
+    }
+    .step-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #64748b;
+    }
+    .step.active .step-label {
+      color: var(--secondary-color);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-motorcycle me-2 text-primary"></i>MotoRent Admin</a>
+      <div class="d-flex align-items-center gap-3">
+        <a href="admin-dashboard.html" class="btn btn-outline-secondary rounded-pill px-3">
+          <i class="fa-solid fa-arrow-left me-2"></i>Back to Dashboard
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm p-4 p-md-5">
+          <h2 class="fw-bold mb-5 text-center">Add New Motorbike</h2>
+
+          <!-- Step Indicators -->
+          <div class="step-indicator d-none d-md-flex">
+            <div class="step active">
+              <div class="step-circle">1</div>
+              <div class="step-label">Basic Info</div>
+            </div>
+            <div class="step">
+              <div class="step-circle">2</div>
+              <div class="step-label">Images</div>
+            </div>
+            <div class="step">
+              <div class="step-circle">3</div>
+              <div class="step-label">Status</div>
+            </div>
+            <div class="step">
+              <div class="step-circle">4</div>
+              <div class="step-label">Review</div>
+            </div>
+          </div>
+
+          <!-- Form Area -->
+          <form action="admin-dashboard.html">
+            <!-- Step 1: Basic Information -->
+            <div id="step1">
+              <h4 class="fw-bold mb-4">Basic Information</h4>
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-muted">Motorbike Name</label>
+                  <input type="text" class="form-control form-control-lg bg-light" placeholder="e.g. CBR600RR" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-muted">Brand</label>
+                  <select class="form-select form-select-lg bg-light" required>
+                    <option value="" selected disabled>Select Brand</option>
+                    <option>Honda</option>
+                    <option>Yamaha</option>
+                    <option>Kawasaki</option>
+                    <option>Ducati</option>
+                    <option>Harley Davidson</option>
+                    <option>Vespa</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-muted">Category</label>
+                  <select class="form-select form-select-lg bg-light" required>
+                    <option value="" selected disabled>Select Category</option>
+                    <option>Sport</option>
+                    <option>Cruiser</option>
+                    <option>Scooter</option>
+                    <option>Off-Road</option>
+                    <option>Touring</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-muted">Price per day ($)</label>
+                  <input type="number" class="form-control form-control-lg bg-light" placeholder="0.00" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold text-muted">Description</label>
+                  <textarea class="form-control form-control-lg bg-light" rows="4" placeholder="Enter motorbike description..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Upload Images (Simulated UI) -->
+            <div id="step2" class="mt-5">
+              <h4 class="fw-bold mb-4">Upload Images</h4>
+              <div class="upload-area mb-4">
+                <i class="fa-solid fa-cloud-arrow-up text-primary mb-3" style="font-size: 48px;"></i>
+                <h5 class="fw-bold">Drag & Drop images here</h5>
+                <p class="text-muted mb-4">or click to browse files (JPEG, PNG, JPG)</p>
+                <button type="button" class="btn btn-outline-primary rounded-pill px-4">Browse Files</button>
+              </div>
+              <div class="row g-3">
+                <!-- Preview placeholders -->
+                <div class="col-3">
+                  <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 100px; border: 1px solid #e2e8f0;">
+                    <i class="fa-regular fa-image text-muted fs-4"></i>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 100px; border: 1px dashed #cbd5e1;">
+                    <i class="fa-solid fa-plus text-muted fs-4"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Status -->
+            <div id="step3" class="mt-5">
+              <h4 class="fw-bold mb-4">Set Status</h4>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="card border border-primary bg-primary bg-opacity-10 p-4 cursor-pointer h-100">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="statusAvailable" checked>
+                      <label class="form-check-label fw-bold ms-2" for="statusAvailable">
+                        Available
+                      </label>
+                    </div>
+                    <p class="text-muted small mt-2 ms-4 mb-0">Motorbike is ready to be rented immediately.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card border p-4 cursor-pointer h-100">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="statusMaintenance">
+                      <label class="form-check-label fw-bold ms-2" for="statusMaintenance">
+                        Maintenance
+                      </label>
+                    </div>
+                    <p class="text-muted small mt-2 ms-4 mb-0">Motorbike is currently under maintenance and not available.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Review and Confirm (Simulated) -->
+            <div id="step4" class="mt-5">
+              <h4 class="fw-bold mb-4">Review and Confirm</h4>
+              <div class="card bg-light border-0 p-4">
+                <div class="d-flex align-items-center mb-4">
+                  <div class="bg-white rounded d-flex align-items-center justify-content-center me-4 shadow-sm" style="width: 120px; height: 100px;">
+                    <i class="fa-solid fa-motorcycle text-primary fs-1"></i>
+                  </div>
+                  <div>
+                    <span class="badge badge-available mb-2">Available</span>
+                    <h5 class="fw-bold mb-1">Motorbike Name</h5>
+                    <p class="text-muted mb-0">Brand • Category</p>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h4 class="fw-bold text-primary mb-0">$0.00</h4>
+                    <small class="text-muted">per day</small>
+                  </div>
+                </div>
+                <hr>
+                <p class="text-muted mb-0">Please review all details before publishing. You can edit this information later from the Motorbike Management page.</p>
+              </div>
+            </div>
+
+            <hr class="my-5">
+            
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-outline-secondary rounded-pill px-4">Previous Step</button>
+              <button type="submit" class="btn btn-primary rounded-pill px-5 fw-semibold">Publish Motorbike</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+</body>
+</html>
